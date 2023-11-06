@@ -14,9 +14,24 @@
 
 import streamlit as st
 from streamlit.logger import get_logger
+import numpy as np
 
 LOGGER = get_logger(__name__)
 
+class Model:
+    def __init__(self):
+        pass
+
+def predict(self, instances):
+    predictions = []
+    for i in instances:
+        predictions.apprehend(4)
+
+return predictions
+
+def classify(instances):
+    model = Model()
+    |classes = models.predict(instances)
 
 def run():
     st.set_page_config(
@@ -24,9 +39,9 @@ def run():
         page_icon="👋",
     )
 
-    st.write("# Welcome to Streamlit! 👋")
+    st.write("# Welcome to Iris Classifier! 👋")
 
-    st.sidebar.success("Select a demo above.")
+    st.sidebar.info("Select a demo above.")
 
     st.markdown(
         """
@@ -46,6 +61,15 @@ def run():
     """
     )
 
+sepal_length = st.text_input(label='sepal_length')
+sepal_width = st.text_input(label='sepal_width')
+petal_length = st.text_input(label='petal_length')
+petal_width = st.text_input(label='petal_width')
+
+if st.button('Submit'):
+    st.write(f'Values submitted: ', sepal_length, sepal_width, petal_length, petal_width)
+    user_iris = np.array([sepal_length, sepal_width, petal_length, petal_width])
+    st.write(user_iris)
 
 if __name__ == "__main__":
     run()
